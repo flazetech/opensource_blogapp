@@ -1,6 +1,6 @@
 # FlazeTech Open Source BlogApp
 
-Welcome to the FlazeTech Open Source BlogApp! This is a blogging platform built using Django, designed to help users learn about open source development. Whether you’re a developer, designer, or content creator, you can contribute in various ways.
+Welcome to the **FlazeTech Open Source BlogApp**! This is a blogging platform built using Django, designed to help users learn about open source development. Whether you’re a developer, designer, or content creator, you can contribute in various ways.
 
 ## Table of Contents
 
