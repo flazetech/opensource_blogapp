@@ -1,6 +1,6 @@
 # FlazeTech Open Source BlogApp
 
-Welcome to the FlazeTech Open Source BlogApp! This is a blogging platform built using Django, designed to help users learn about open source development. Whether you’re a developer, designer, or content creator, you can contribute in various ways.
+Welcome to the FlazeTech Open Source BlogApp! This blogging platform is built using Django and is designed to help users learn about open source development. Whether you’re a developer, designer, or content creator, you can contribute in various ways.
 
 ## Table of Contents
 
@@ -47,5 +47,26 @@ python manage.py migrate
 python manage.py migrate
 ```
 6.**Access the App Open your browser** and go to  http://127.0.0.1:8000.
+
+## Usage
+
+Once the server is running, you can create an account or log in to start creating blog posts, managing categories, and interacting with other users.
+
+## Contribution Guidelines
+
+We welcome contributions! Please follow these steps to contribute:
+
+	1.	Fork the repository.
+	2.	Create a new branch for your feature or bug fix.
+	3.	Commit your changes and push to your branch.
+	4.	Open a pull request with a clear description of your changes.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Contact
+
+For questions or feedback, please contact us at support@flazetech.com.
 
 
