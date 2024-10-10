@@ -86,6 +86,44 @@ We welcome a wide range of contributions to the **FlazeTech Open Source BlogApp*
 - **Edit and review** content submitted by other contributors for clarity and quality.
 
 Please make sure to update tests as appropriate and ensure that your code follows the project’s coding standards.
+## Tech Stack
+
+The FlazeTech Open Source BlogApp is built using the following technologies:
+
+### Frontend:
+
+- ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+  **HTML**: Used for structuring the content of the web pages.
+  
+- ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+  **CSS**: Used for styling the web pages and making them visually appealing.
+  
+- ![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
+  **Bootstrap**: A CSS framework for responsive design and pre-built UI components.
+
+### Backend:
+
+- ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+  **Python**: The core programming language used in the project.
+  
+- ![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
+  **Django**: A high-level Python web framework that encourages rapid development and clean, pragmatic design.
+
+### Database:
+
+- ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+  **MySQL**: A reliable and scalable relational database used to store and manage the blog data.
+
+---
+
+### Key Features of the Tech Stack:
+
+- **HTML, CSS, and Bootstrap** are used to create a responsive and user-friendly UI.
+- **Django** serves as the web framework, handling the server-side logic, routing, and integration with the database.
+- **MySQL** is used to manage user data, blog posts, categories, comments, and other application data.
+
+This stack allows for the creation of a robust, scalable, and maintainable web application with a clear separation of concerns between frontend and backend components.
+
 
 ![Project Logo](https://i.imgur.com/hNu3xVg.png)
 
