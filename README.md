@@ -87,5 +87,7 @@ We welcome a wide range of contributions to the **FlazeTech Open Source BlogApp*
 
 Please make sure to update tests as appropriate and ensure that your code follows the project’s coding standards.
 
+![Project Logo](https://i.imgur.com/hNu3xVg.png)
+
 ## Contact
 If you have any questions or issues, feel free to open an issue on GitHub or contact us at [support@flazetech.com](mailto:support@flazetech.com).
