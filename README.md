@@ -65,23 +65,27 @@ Push to the branch
 git push origin feature-branch
 ```
 Open a pull request.
-**Contribution Guidelines**
-We welcome a wide range of contributions to the FlazeTech Open Source BlogApp. Here’s how you can contribute:
+## Contribution Guidelines
 
-**Development**
-Work on features, bug fixes, or improvements.
-Update existing functionality or suggest new ones.
-**Design**
-Create logos and graphics to improve the visual appeal of the app.
-Design layout enhancements for better user experience.
-**Content Creation**
-Write blog posts to help new users get started with the app or Django development in general.
-Write documentation to improve user guides or development instructions.
-**Writing & Editing**
-Contribute content writing for blogs, documentation, or tutorials.
-Edit and review content submitted by other contributors for clarity and quality.
+We welcome a wide range of contributions to the **FlazeTech Open Source BlogApp**. Here’s how you can contribute:
+
+### Development
+- Work on features, bug fixes, or improvements.
+- Update existing functionality or suggest new ones.
+
+### Design
+- Create **logos** and **graphics** to improve the visual appeal of the app.
+- Design layout enhancements for a better user experience.
+
+### Content Creation
+- Write **blog posts** to help new users get started with the app or Django development in general.
+- Write **documentation** to improve user guides or development instructions.
+
+### Writing & Editing
+- Contribute **content writing** for blogs, documentation, or tutorials.
+- **Edit and review** content submitted by other contributors for clarity and quality.
+
 Please make sure to update tests as appropriate and ensure that your code follows the project’s coding standards.
-**Contact**
-If you have any questions or issues, feel free to open an issue on GitHub or contact us at support@flazetech.com.
 
-
+## Contact
+If you have any questions or issues, feel free to open an issue on GitHub or contact us at [support@flazetech.com](mailto:support@flazetech.com).
