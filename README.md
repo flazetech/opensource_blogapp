@@ -2,6 +2,7 @@
 
 Welcome to the **FlazeTech Open Source BlogApp**! This is a blogging platform built using Django, designed to help users learn about open source development. Whether you’re a developer, designer, or content creator, you can contribute in various ways.
 
+![Project Logo](https://i.imgur.com/j2SYVJR.png)
 ## Table of Contents
 
 - [Features](#features)
