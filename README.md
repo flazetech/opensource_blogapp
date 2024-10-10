@@ -47,5 +47,26 @@ python manage.py migrate
 python manage.py migrate
 ```
 6.**Access the App Open your browser** and go to  http://127.0.0.1:8000.
+**Contribution Guidelines**
+We welcome contributions to this project! To contribute, please follow these steps:
+
+Fork the repository.
+Create a new branch
+```bash
+git checkout -b feature-branch
+```
+Make your changes.
+Commit your changes 
+```bash
+git commit -m "Add feature"
+```
+Push to the branch 
+```
+git push origin feature-branch
+```
+Open a pull request.
+Please make sure to update tests as appropriate and ensure that your code follows the project’s coding standards.
+**Contact**
+If you have any questions or issues, feel free to open an issue on GitHub or contact us at support@flazetech.com.
 
 
