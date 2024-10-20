@@ -1,0 +1,219 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlazeTech BlogApp</title>
+
+    <!-- Bootstrap 5 CSS CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Google Font (Poppins) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+
+
+    <!-- custom css located at /static/css/auth.css -->
+    <link rel="stylesheet" href="{% static 'css/auth.css'%}">
+
+    <style>
+        body {
+            background-color: #113D23;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .navbar {
+            padding: 15px;
+            background-color: #2c3e50;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ecf0f1;
+        }
+
+        .navbar-nav .nav-link {
+            color: #ecf0f1;
+            font-weight: 500;
+            padding: 0 20px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #2ecc71;
+        }
+
+        main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 80px;
+        }
+
+        .messages {
+            list-style: none;
+        }
+
+        .warning {
+            color: red;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .heading {
+            font-size: 50px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .signupform {
+            margin-top: 30px;
+        }
+
+        .subheading {
+            font-size: 24px;
+
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: fit-content;
+            background-color: white;
+            padding: 50px 60px;
+            border-radius: 8px;
+        }
+
+        input {
+            padding: 10px 20px;
+            width: 25vw;
+        }
+
+        label {
+            margin-top: 10px;
+        }
+
+        button {
+            color: white;
+            background-color: #2ecc71;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 0px;
+            margin-bottom: 10px;
+        }
+
+        button:hover {
+            background-color: #2cc46c;
+        }
+
+        p{
+            margin-top: 10px;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+        }
+
+        footer .social-icons i {
+            font-size: 1.5rem;
+            margin: 0 10px;
+            color: #ffffff;
+            transition: color 0.3s;
+        }
+
+        footer .social-icons i:hover {
+            color: #2ecc71;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">FlazeTech BlogApp</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'home' %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Blogs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'contact'%}">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Section -->
+    <main>
+
+        <h1 class="heading" id="heading">Signup To Write And Publish Blogs</h1>
+
+        <!-- signup form -->
+        <div class="signupform" id="signupform">
+
+            <form action="signup" method="post">
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                        {% endfor %}
+                </ul>
+                {% endif %}
+                {% csrf_token %}
+                <p class="subheading">SignUp</p>
+                <label for="username">Username:</label>
+                <input type="text" name="username" required>
+                <label for="email">Email:</label>
+                <input type="email" name="email" required>
+                <label for="Password">Password:</label>
+                <input type="password" name="password" required>
+                <p>Already have an account? <a href="{%url 'signin'%}">Sign In</a></p>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+
+    </main>
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2024 FlazeTech. All Rights Reserved.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+    </script>
+
+</body>
+
+</html>

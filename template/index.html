@@ -173,6 +173,17 @@
                 font-size: 1rem;
             }
         }
+
+        .messages {
+            list-style: none;
+        }
+
+        .success {
+            color: green;
+            font-size: 18px;
+            text-align: center;
+            padding-top: 15px;
+        }
     </style>
 </head>
 <body>
@@ -187,7 +198,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="{% url 'home'%}">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Blogs</a>
@@ -198,10 +209,21 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'signin'%}">Login</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
+
+    {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
 
     <!-- Hero Section -->
     <section class="hero">

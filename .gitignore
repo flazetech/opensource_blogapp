@@ -1,0 +1,4 @@
+# files and folders which won't be pushed
+
+venv/
+env/
