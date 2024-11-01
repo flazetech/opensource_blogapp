@@ -177,22 +177,34 @@
           .stat-box {
                background: linear-gradient(to right, #A27E59, #2c3e50);
                border-radius: 10px;
-           }
-           
-           .stat-number {
+          }
+
+          .stat-number {
                font-size: 2.5rem;
                margin: 0;
                font-weight: bold;
-           }
-           
-           .stat-text {
+          }
+
+          .stat-text {
                font-size: 1.2rem;
                margin-top: 10px;
-           }
-           .stat-box:hover{
+          }
+
+          .stat-box:hover {
                box-shadow: 0 8px 12px black;
-           }
-           
+          }
+
+          .logoholder {
+               background-color: white;
+               cursor: pointer;
+               border-radius: 8px;
+          }
+
+          #logoimg {
+               object-fit: cover;
+               height: 45px;
+               width: auto;
+          }
      </style>
 </head>
 
@@ -200,7 +212,9 @@
      <!-- navbar section -->
      <nav class="navbar navbar-expand-lg navbar-dark">
           <div class="container">
-               <a class="navbar-brand" href="#">FlazeTech BlogApp</a>
+               <div class="logoholder">
+                    <img src="{% static 'logo.png'%}" alt="logo" id="logoimg">
+                </div>
                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -229,7 +243,8 @@
                <div class="main">
                     <div class="content1 col-6 mt-3">
                          <h1>About / Flazetech</h1>
-                         <p style="color: #171918; margin: top 2.5rem;">Flazetech Technologies, headquartered in Mumbai, is a leading IT
+                         <p style="color: #171918; margin: top 2.5rem;">Flazetech Technologies, headquartered in Mumbai,
+                              is a leading IT
                               company specializing in machine learning, innovative web development, and problem-solving.
                               Our dedicated team thrives on creating tailored solutions for businesses, utilizing
                               cutting-edge technologies to optimize operations and drive growth. At Flazetech, we’re
@@ -261,40 +276,40 @@
 
           <div class="container py-5">
                <div class="row text-center">
-                   <div class="col-md-3">
-                       <div class="stat-box p-4 text-white">
-                           <div class="stat-number">354+</div>
-                           <div class="stat-text">Completed Projects</div>
-                       </div>
-                   </div>
-                   <div class="col-md-3">
-                       <div class="stat-box p-4 text-white">
-                           <div class="stat-number">119+</div>
-                           <div class="stat-text">Robotic Automation</div>
-                       </div>
-                   </div>
-                   <div class="col-md-3">
-                       <div class="stat-box p-4 text-white">
-                           <div class="stat-number">99%</div>
-                           <div class="stat-text">Website Analyse</div>
-                       </div>
-                   </div>
-                   <div class="col-md-3">
-                       <div class="stat-box p-4 text-white">
-                           <div class="stat-number">321+</div>
-                           <div class="stat-text">Clients Support Done</div>
-                       </div>
-                   </div>
+                    <div class="col-md-3">
+                         <div class="stat-box p-4 text-white">
+                              <div class="stat-number">354+</div>
+                              <div class="stat-text">Completed Projects</div>
+                         </div>
+                    </div>
+                    <div class="col-md-3">
+                         <div class="stat-box p-4 text-white">
+                              <div class="stat-number">119+</div>
+                              <div class="stat-text">Robotic Automation</div>
+                         </div>
+                    </div>
+                    <div class="col-md-3">
+                         <div class="stat-box p-4 text-white">
+                              <div class="stat-number">99%</div>
+                              <div class="stat-text">Website Analyse</div>
+                         </div>
+                    </div>
+                    <div class="col-md-3">
+                         <div class="stat-box p-4 text-white">
+                              <div class="stat-number">321+</div>
+                              <div class="stat-text">Clients Support Done</div>
+                         </div>
+                    </div>
                </div>
-           </div>
-           
-           <!-- Our projects -->
-           <div class="container-fluid">
-               <h1 class="text-center"  style="color: #A27E59; font-weight:700">Our Projects</h1>
+          </div>
+
+          <!-- Our projects -->
+          <div class="container-fluid">
+               <h1 class="text-center" style="color: #A27E59; font-weight:700">Our Projects</h1>
                <div class="row">
 
                </div>
-           </div>
+          </div>
 
      </div>
 

@@ -130,6 +130,16 @@
         footer .social-icons i:hover {
             color: #2ecc71;
         }
+        .logoholder{
+            background-color: white;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        #logoimg{
+            object-fit: cover;
+            height: 45px ;
+            width: auto;
+        }
     </style>
 
 
@@ -141,7 +151,9 @@
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container">
-                <a class="navbar-brand" href="#">FlazeTech BlogApp</a>
+                <div class="logoholder">
+                    <img src="{% static 'logo.png'%}" alt="logo" id="logoimg">
+                </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
