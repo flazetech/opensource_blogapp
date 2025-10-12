@@ -1,219 +1,225 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FlazeTech BlogApp</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FlazeTech BlogApp • Sign in</title>
 
-    <!-- Bootstrap 5 CSS CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
 
-    <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Optional: your existing file, kept for overrides if needed -->
+  <link rel="stylesheet" href="{% static 'css/auth.css' %}">
 
-    <!-- Google Font (Poppins) -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== Theme: Deep Indigo / Cyan Glow ===== */
+    :root{
+      --primary:#4f46e5;        /* indigo */
+      --secondary:#06b6d4;      /* cyan */
+      --accent:#60a5fa;         /* electric blue */
+      --bg:#0b0c1a;             /* page background */
+      --card:#101226;           /* card background */
+      --muted:#9aa2b2;          /* muted text */
+      --text:#e8eafb;           /* body text */
+      --border: 1px solid rgba(6,182,212,.25);
+      --radius:18px;
+      --shadow: 0 24px 60px rgba(9,10,22,.45);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--text); background:
+        radial-gradient(900px 600px at 10% -10%, rgba(6,182,212,.16), transparent),
+        radial-gradient(900px 700px at 100% 100%, rgba(79,70,229,.14), transparent),
+        var(--bg);
+      overflow-x:hidden;
+    }
 
+    /* ===== Navbar ===== */
+    .nav-wrap{position:sticky; top:0; z-index:50; background:rgba(15,18,40,.6); backdrop-filter: blur(10px); border-bottom: var(--border)}
+    .brand{display:flex; align-items:center; gap:.6rem; font-weight:700}
+    .brand-logo{width:28px; height:28px; border-radius:50%; background:conic-gradient(from 180deg, var(--secondary), var(--primary), var(--secondary)); box-shadow:0 0 0 2px rgba(6,182,212,.35) inset}
+    .nav-link{color:var(--text) !important; opacity:.9}
+    .nav-link:hover{opacity:1}
+    .btn-neo{display:inline-flex; align-items:center; gap:.5rem; padding:.55rem 1rem; border-radius:999px; border:var(--border); color:var(--text); background:linear-gradient(180deg, rgba(6,182,212,.18), rgba(79,70,229,.10)); box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 10px 30px rgba(0,198,255,.18);}
 
-    <!-- custom css located at /static/css/auth.css -->
-    <link rel="stylesheet" href="{% static 'css/auth.css'%}">
+    /* ===== Auth Layout ===== */
+    main{min-height:calc(100vh - 160px); display:grid; place-items:center; padding:56px 16px; position:relative}
+    .grid-bg{position:absolute; inset:0; background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px); background-size: 42px 42px; opacity:.25; pointer-events:none}
 
-    <style>
-        body {
-            background-color: #113D23;
-            font-family: 'Poppins', sans-serif;
-        }
+    .auth-card{position:relative; z-index:1; width:min(760px, 94vw); background:linear-gradient(180deg, rgba(6,182,212,.06), rgba(79,70,229,.05)), var(--card); border:var(--border); border-radius:calc(var(--radius) + 2px); box-shadow:var(--shadow); overflow:hidden}
+    .auth-split{display:grid; grid-template-columns: 1.1fr .9fr;}
+    @media (max-width: 992px){ .auth-split{grid-template-columns: 1fr} }
 
-        .navbar {
-            padding: 15px;
-            background-color: #2c3e50;
-        }
+    .side-hero{position:relative; padding:38px 28px; border-right: var(--border)}
+    @media (max-width: 992px){ .side-hero{border-right:none; border-bottom: var(--border}}
+    .eyebrow{font-size:.85rem; letter-spacing:.25em; text-transform:uppercase; color:var(--secondary)}
+    .side-hero h1{font-size:clamp(1.6rem, 3.2vw, 2.2rem); margin:.4rem 0 1rem}
+    .side-hero p{color:var(--muted)}
+    .perk{display:flex; align-items:center; gap:.6rem; color:var(--muted)}
 
-        .navbar-brand {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #ecf0f1;
-        }
+    .form-wrap{padding:38px 28px}
+    .form-title{font-weight:700; font-size:1.3rem; margin-bottom:.2rem}
+    .form-sub{color:var(--muted); margin-bottom:1rem}
 
-        .navbar-nav .nav-link {
-            color: #ecf0f1;
-            font-weight: 500;
-            padding: 0 20px;
-        }
+    .form-control{background:#0c0f22; border:1px solid rgba(6,182,212,.25); color:var(--text); border-radius:12px; padding:.85rem 1rem}
+    .form-control:focus{outline:none; border-color:var(--secondary); box-shadow:0 0 0 3px rgba(6,182,212,.2)}
+    .input-row{margin-bottom:.9rem}
 
-        .navbar-nav .nav-link:hover {
-            color: #2ecc71;
-        }
+    .btn-primary{background:linear-gradient(90deg, var(--primary), var(--secondary)); border:none; color:white; font-weight:600; padding:.85rem 1rem; border-radius:12px; box-shadow:0 10px 30px rgba(0,198,255,.25)}
+    .btn-primary:hover{transform: translateY(-1px)}
 
-        main {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            padding: 80px;
-        }
+    .muted{color:var(--muted)}
 
-        .messages {
-            list-style: none;
-        }
+    /* Messages (Django) */
+    ul.messages{list-style:none; padding-left:0; margin:0 0 10px}
+    ul.messages li{padding:.6rem .8rem; border-radius:10px; border:var(--border); background:rgba(15,18,40,.85); color:#93c5fd; display:flex; align-items:center; gap:.6rem}
+    ul.messages li.warning{color:#fca5a5}
 
-        .warning {
-            color: red;
-            font-size: 18px;
-            text-align: center;
-        }
-
-        .heading {
-            font-size: 50px;
-            font-weight: 600;
-            color: white;
-        }
-
-        .signinform {
-            margin-top: 30px;
-        }
-
-        .subheading {
-            font-size: 24px;
-
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            width: fit-content;
-            background-color: white;
-            padding: 50px 60px;
-            border-radius: 8px;
-        }
-
-        input {
-            padding: 10px 20px;
-            width: 25vw;
-        }
-
-        label {
-            margin-top: 10px;
-        }
-        p{
-            margin-top: 10px;
-        }
-        button {
-            color: white;
-            background-color: #2ecc71;
-            padding: 10px 20px;
-            margin-top: 10px;
-            border-radius: 5px;
-            border: 0px;
-            margin-bottom: 10px;
-        }
-
-        button:hover {
-            background-color: #2cc46c;
-        }
-
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            padding: 20px 0;
-        }
-
-        footer .social-icons i {
-            font-size: 1.5rem;
-            margin: 0 10px;
-            color: #ffffff;
-            transition: color 0.3s;
-        }
-
-        footer .social-icons i:hover {
-            color: #2ecc71;
-        }
-    </style>
-
-
+    /* Footer */
+    footer{border-top:var(--border); padding:30px 0 22px; color:var(--muted)}
+    .social a{display:inline-flex; width:40px; height:40px; align-items:center; justify-content:center; border-radius:50%; border:1px solid rgba(6,182,212,.25); margin-right:.5rem}
+  </style>
 </head>
-
 <body>
-    <!-- Header Section -->
-    <header>
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <div class="container">
-                <a class="navbar-brand" href="#">FlazeTech BlogApp</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'home'%}">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Blogs</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'about' %}">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'contact'%}">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
 
-    <!-- Main Section -->
-    <main>
+  <!-- ===== Navbar ===== -->
+  <div class="nav-wrap">
+    <nav class="container d-flex align-items-center justify-content-between py-3">
+      <a class="brand" href="{% url 'home' %}"><span class="brand-logo"></span><span>FlazeTech</span></a>
+      <div class="d-none d-md-flex align-items-center gap-4">
+        <a class="nav-link" href="{% url 'home' %}">Home</a>
+        <a class="nav-link" href="#">Blogs</a>
+        <a class="nav-link" href="{% url 'about' %}">About</a>
+        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+        <a class="btn-neo" href="{% url 'signin' %}"><i class="fa-regular fa-user"></i> Sign in</a>
+      </div>
+    </nav>
+  </div>
 
+  <!-- ===== Main ===== -->
+  <main>
+    <div class="grid-bg"></div>
 
-
-
-        <h1 class="heading" id="heading">Signin To Write And Publish Blogs</h1>
-
-
-        <!-- signin form -->
-        <div class="signinform" id="signinform">
-
-            <form action="signin" method="post">
-                {% if messages %}
-                <ul class="messages">
-                    {% for message in messages %}
-                    <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
-                        {% endfor %}
-                </ul>
-                {% endif %}
-                {% csrf_token %}
-                <p class="subheading">SignIn</p>
-                <label for="username">Username:</label>
-                <input type="text" name="username" required>
-                <label for="Password">Password:</label>
-                <input type="password" name="password" required>
-                <p>Don't have an account? <a href="{%url 'signup'%}">Sign Up</a></p>
-                <button type="submit">Sign In</button>
-            </form>
+    <section class="auth-card auth-split" id="signin-card">
+      <!-- Left: Message / Perks -->
+      <div class="side-hero">
+        <div class="eyebrow">Secure • Fast • Friendly</div>
+        <h1>Sign in to write and publish</h1>
+        <p>Join a growing community of engineers sharing tutorials, case studies, and hard‑won lessons. Your words can power someone else’s breakthrough.</p>
+        <div class="row g-3 mt-2">
+          <div class="col-12 col-md-6">
+            <div class="perk"><i class="fa-solid fa-shield-halved text-info"></i> 2‑factor ready</div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="perk"><i class="fa-solid fa-bolt text-info"></i> Auto‑save drafts</div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="perk"><i class="fa-solid fa-eye text-info"></i> Preview in realtime</div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="perk"><i class="fa-solid fa-people-group text-info"></i> Peer review</div>
+          </div>
         </div>
+      </div>
 
-    </main>
-    <footer>
-        <div class="container text-center">
-            <p>&copy; 2024 FlazeTech. All Rights Reserved.</p>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
+      <!-- Right: Form -->
+      <div class="form-wrap">
+        {% if messages %}
+        <ul class="messages mb-2">
+          {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}><i class="fa-regular fa-bell"></i> {{ message }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+
+        <div class="form-title">Welcome back</div>
+        <div class="form-sub">Enter your credentials to access your dashboard.</div>
+
+        <form action="signin" method="post" class="needs-validation" novalidate>
+          {% csrf_token %}
+
+          <div class="input-row">
+            <label class="form-label" for="username">Username</label>
+            <input id="username" name="username" type="text" class="form-control" placeholder="e.g. faizal_i" required />
+            <div class="invalid-feedback">Username is required.</div>
+          </div>
+
+          <div class="input-row position-relative">
+            <label class="form-label" for="password">Password</label>
+            <div class="input-group">
+              <input id="password" name="password" type="password" class="form-control" placeholder="••••••••" required />
+              <button class="btn btn-outline-secondary" type="button" id="togglePwd" style="border-color:rgba(6,182,212,.25); color:var(--text)"><i class="fa-regular fa-eye"></i></button>
             </div>
-        </div>
-    </footer>
+            <div class="invalid-feedback">Password is required.</div>
+          </div>
 
-    <script>
-        
-    </script>
+          <div class="d-flex align-items-center justify-content-between mt-2 mb-2">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="1" id="remember">
+              <label class="form-check-label muted" for="remember">Remember me</label>
+            </div>
+            <a class="muted" href="#">Forgot password?</a>
+          </div>
 
+          <button type="submit" class="btn btn-primary w-100">Sign in</button>
+
+          <p class="muted mt-3 mb-0">Don't have an account? <a href="{% url 'signup' %}" style="color:var(--accent)">Sign up</a></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <div class="container text-center">
+      <p>© {{ now|date:'Y' }} FlazeTech. All Rights Reserved.</p>
+      <div class="social">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter/X"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+  <script>
+    // Bootstrap validation
+    (function () {
+      'use strict'
+      const forms = document.querySelectorAll('.needs-validation')
+      Array.from(forms).forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault(); event.stopPropagation();
+          }
+          form.classList.add('was-validated')
+        }, false)
+      })
+    })()
+
+    // Password visibility toggle
+    const toggleBtn = document.getElementById('togglePwd');
+    const pwd = document.getElementById('password');
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', () => {
+        const isPwd = pwd.getAttribute('type') === 'password';
+        pwd.setAttribute('type', isPwd ? 'text' : 'password');
+        toggleBtn.querySelector('i').classList.toggle('fa-eye');
+        toggleBtn.querySelector('i').classList.toggle('fa-eye-slash');
+      });
+    }
+
+    // Subtle entrance animation
+    gsap.from('#signin-card', {y: 26, opacity: 0, duration: .8, ease: 'power2.out'});
+  </script>
 </body>
-
 </html>
