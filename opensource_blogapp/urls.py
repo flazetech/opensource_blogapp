@@ -1,32 +1,19 @@
-"""
-URL configuration for opensource_blogapp project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from django.contrib import admin
-from django.urls import path, include
-from .views import  *
-
-
-
+from django.urls import path
+from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('',index,name='home'),
-    path('about',aboutus,name='about'),
-    path('contact',contact,name='contact'),
-    path('signup',signup,name='signup'), # this url endpoint will call signup views 
-    path('signin',signin,name='signin'), # this url endpoint will call signin views
+    path("", views.index, name="home"),
+    path("about/", views.aboutus, name="about"),
+    path("contact/", views.contact, name="contact"),
+    path("signup/", views.signup, name="signup"),
+    path("signin/", views.signin, name="signin"),
 
+    # blogs
+    path("blogs/", views.blog_list, name="blog_list"),
+    path("blogs/new/", views.blog_create, name="blog_create"),
+    path("blogs/<slug:slug>/", views.blog_detail, name="blog_detail"),
+    path("blogs/<slug:slug>/edit/", views.blog_edit, name="blog_edit"),
+    path("blogs/<slug:slug>/delete/", views.blog_delete, name="blog_delete"),
+    path("blogs/<slug:slug>/comment/", views.add_comment, name="add_comment"),
+    path("blogs/<slug:slug>/like/", views.toggle_like, name="toggle_like"),
 ]
