@@ -41,6 +41,13 @@
     .nav-link:hover{opacity:1}
     .btn-neo{display:inline-flex; align-items:center; gap:.55rem; padding:.6rem 1rem; border-radius:999px; border:var(--border); background:linear-gradient(180deg, rgba(6,182,212,.18), rgba(79,70,229,.10)); box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 10px 30px rgba(0,198,255,.18);}
 
+    /* ===== MEDIA HELPERS (consistent image sizing) ===== */
+    .media{position:relative; width:100%; overflow:hidden; border:var(--border); background:linear-gradient(180deg, rgba(6,182,212,.08), rgba(79,70,229,.05));}
+    .media-16x9{aspect-ratio:16/9}
+    .media-4x3{aspect-ratio:4/3}
+    .media-1x1{aspect-ratio:1/1}
+    .media > img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block}
+
     /* ===== Hero ===== */
     .hero{position:relative; padding:84px 0 42px; overflow:hidden}
     .grid-bg{position:absolute; inset:0; background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px); background-size: 42px 42px; opacity:.25; pointer-events:none}
@@ -100,7 +107,9 @@
         </div>
         <div class="col-lg-6">
           <div class="card-soft p-3">
-            <img src="{% static 'about1.png' %}" alt="About FlazeTech" class="w-100 rounded-4" style="border:var(--border)"/>
+            <div class="media media-4x3 rounded-4">
+              <img loading="lazy" src="{% static 'about1.png' %}" alt="About FlazeTech" />
+            </div>
           </div>
         </div>
       </div>
@@ -189,21 +198,27 @@
       <div class="row g-4">
         <div class="col-md-6 col-lg-4">
           <article class="card-soft p-3 h-100">
-            <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=1200&auto=format&fit=crop" alt="Analytics Platform" class="rounded-3 mb-3" style="border:var(--border)">
+            <div class="media media-16x9 rounded-3 mb-3">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=1200&auto=format&fit=crop" alt="Analytics Platform">
+            </div>
             <h5>Analytics Platform</h5>
             <p class="mb-0" style="color:var(--muted)">End‑to‑end telemetry and dashboards for web and mobile products.</p>
           </article>
         </div>
         <div class="col-md-6 col-lg-4">
           <article class="card-soft p-3 h-100">
-            <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1200&auto=format&fit=crop" alt="Automation Suite" class="rounded-3 mb-3" style="border:var(--border)">
+            <div class="media media-16x9 rounded-3 mb-3">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Automation Suite">
+            </div>
             <h5>Automation Suite</h5>
             <p class="mb-0" style="color:var(--muted)">RPA bots saving thousands of hours on repetitive workflows.</p>
           </article>
         </div>
         <div class="col-md-6 col-lg-4">
           <article class="card-soft p-3 h-100">
-            <img src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?q=80&w=1200&auto=format&fit=crop" alt="Design System" class="rounded-3 mb-3" style="border:var(--border)">
+            <div class="media media-16x9 rounded-3 mb-3">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?q=80&w=1200&auto=format&fit=crop" alt="Design System">
+            </div>
             <h5>Design System</h5>
             <p class="mb-0" style="color:var(--muted)">A consistent component library powering multiple client apps.</p>
           </article>
@@ -263,7 +278,7 @@
     gsap.registerPlugin(ScrollTrigger);
     gsap.from('.hero h1', {y:20, opacity:0, duration:.8, ease:'power2.out'});
     gsap.from('.hero .lead', {y:20, opacity:0, duration:.8, delay:.1, ease:'power2.out'});
-    document.querySelectorAll('.section .card-soft, .stat-box').forEach((el,i)=>{
+    document.querySelectorAll('.section .card-soft, .stat-box, .media').forEach((el,i)=>{
       gsap.from(el, {y:24, opacity:0, duration:.8, delay:(i%3)*.06, ease:'power2.out', scrollTrigger:{trigger:el, start:'top 85%'}})
     });
   </script>
