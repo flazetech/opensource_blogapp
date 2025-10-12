@@ -125,8 +125,8 @@ The FlazeTech Open Source BlogApp is built using the following technologies:
 
 This stack allows for the creation of a robust, scalable, and maintainable web application with a clear separation of concerns between frontend and backend components.
 
-
-![Project Logo](https://i.imgur.com/hNu3xVg.png)
+### Homepage
+<img width="1494" height="848" alt="Image" src="https://github.com/user-attachments/assets/41c76e3d-1a5e-482e-9f1a-1a7ae57a315c" />
 
 ## Contact
 If you have any questions or issues, feel free to open an issue on GitHub or contact us at [support@flazetech.com](mailto:support@flazetech.com).
